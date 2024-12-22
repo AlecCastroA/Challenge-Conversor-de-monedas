@@ -28,8 +28,7 @@ public class Principal {
                     break;
                 case "7":
                     System.out.println("Saliendo del programa. ¡Gracias por usar el conversor!");
-                    System.exit(0);
-                    break;
+                    return;
                 default:
                     System.out.println("Opción incorrecta. Inténtelo nuevamente.");
                     break;

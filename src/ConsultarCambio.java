@@ -24,7 +24,13 @@ public class ConsultarCambio {
             response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Error al obtener datos de cambio: " + e.getMessage(), e);
+            System.out.println("Error: No se pudo conectar con el servicio de cambio de divisas. Por favor, verifica tu conexión a internet.");
+            return null;
+        }
+
+        if (response.statusCode() != 200) {
+            System.out.println("Error: La API devolvió un código de estado no exitoso (" + response.statusCode() + ").");
+            return null;
         }
 
         Gson gson = new GsonBuilder()
